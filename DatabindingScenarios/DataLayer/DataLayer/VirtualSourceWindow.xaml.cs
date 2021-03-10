@@ -77,7 +77,7 @@ namespace DataLayer {
     }
 
     readonly HttpClient httpClient = new HttpClient();
-    readonly string dataUrl = "http://outlier.oliversturm.com:8080/countries";
+    readonly string dataUrl = "https://outlier.oliversturm.com/countries";
 
     NameValueCollection CreateParameters() => HttpUtility.ParseQueryString("");
 

@@ -80,74 +80,73 @@
                 </dxc:ChartControl>
             </dx:DXTabItem>
             <dx:DXTabItem Header="3D Chart Sample">
-            </dx:DXTabItem>
-        </dx:DXTabControl>
-        <dxc:Chart3DControl AspectRatio="1 1 1">
-            <dxc:Chart3DControl.ZAxis>
-                <dxc:ZAxis3D>
-                    <dxc:ZAxis3D.WholeRange>
-                        <dxc:Range MaxValue="60" MinValue="0" />
-                    </dxc:ZAxis3D.WholeRange>
-                </dxc:ZAxis3D>
-            </dxc:Chart3DControl.ZAxis>
-            <dxc:Chart3DControl.ContentTransform>
-                <Transform3DGroup>
-                    <RotateTransform3D>
-                        <RotateTransform3D.Rotation>
-                            <AxisAngleRotation3D x:Name="AX" Axis="1,0,0" Angle="50" />
-                        </RotateTransform3D.Rotation>
-                    </RotateTransform3D>
-                    <RotateTransform3D>
-                        <RotateTransform3D.Rotation>
-                            <AxisAngleRotation3D x:Name="AY" Axis="0,1,0" Angle="65" />
-                        </RotateTransform3D.Rotation>
-                    </RotateTransform3D>
-                    <RotateTransform3D>
-                        <RotateTransform3D.Rotation>
-                            <AxisAngleRotation3D x:Name="AZ" Axis="0,0,1" Angle="50" />
-                        </RotateTransform3D.Rotation>
-                    </RotateTransform3D>
-                </Transform3DGroup>
-            </dxc:Chart3DControl.ContentTransform>
-            <dxc:Series3DStorage>
-                <dxc:Series3D>
-                    <dxc:Series3D.View>
-                        <dxc:SurfaceSeriesView x:Name="surfaceView">
-                        </dxc:SurfaceSeriesView>
-                    </dxc:Series3D.View>
-                    <dxc:SeriesPoint3DDataSourceAdapter DataSource="{Binding Measurements}"
+                <dxc:Chart3DControl AspectRatio="1 1 1">
+                    <dxc:Chart3DControl.ZAxis>
+                        <dxc:ZAxis3D>
+                            <dxc:ZAxis3D.WholeRange>
+                                <dxc:Range MaxValue="60" MinValue="0" />
+                            </dxc:ZAxis3D.WholeRange>
+                        </dxc:ZAxis3D>
+                    </dxc:Chart3DControl.ZAxis>
+                    <dxc:Chart3DControl.ContentTransform>
+                        <Transform3DGroup>
+                            <RotateTransform3D>
+                                <RotateTransform3D.Rotation>
+                                    <AxisAngleRotation3D x:Name="AX" Axis="1,0,0" Angle="50" />
+                                </RotateTransform3D.Rotation>
+                            </RotateTransform3D>
+                            <RotateTransform3D>
+                                <RotateTransform3D.Rotation>
+                                    <AxisAngleRotation3D x:Name="AY" Axis="0,1,0" Angle="65" />
+                                </RotateTransform3D.Rotation>
+                            </RotateTransform3D>
+                            <RotateTransform3D>
+                                <RotateTransform3D.Rotation>
+                                    <AxisAngleRotation3D x:Name="AZ" Axis="0,0,1" Angle="50" />
+                                </RotateTransform3D.Rotation>
+                            </RotateTransform3D>
+                        </Transform3DGroup>
+                    </dxc:Chart3DControl.ContentTransform>
+                    <dxc:Series3DStorage>
+                        <dxc:Series3D>
+                            <dxc:Series3D.View>
+                                <dxc:SurfaceSeriesView x:Name="surfaceView">
+                                </dxc:SurfaceSeriesView>
+                            </dxc:Series3D.View>
+                            <dxc:SeriesPoint3DDataSourceAdapter DataSource="{Binding Measurements}"
                             ValueDataMember="Voltage" XArgumentDataMember="Impedance"
                             YArgumentDataMember="Phase" />
-                </dxc:Series3D>
+                        </dxc:Series3D>
 
-                <dxc:Series3D>
-                    <dxc:SeriesPoint3DMatrixAdapter DataContext="{Binding Measurements}"
+                        <dxc:Series3D>
+                            <dxc:SeriesPoint3DMatrixAdapter DataContext="{Binding Measurements}"
                             XArguments="{Binding FrontLine}" YArguments="{Binding Phases}"
                             Values="{Binding FrontCurtainValues}" />
-                    <dxc:Series3D.View>
-                        <dxc:SurfaceSeriesView>
-                            <dxc:SurfaceSeriesView.FillStyle>
-                                <dxc:SolidFillStyle Brush="#C1E0E5" />
-                            </dxc:SurfaceSeriesView.FillStyle>
-                        </dxc:SurfaceSeriesView>
-                    </dxc:Series3D.View>
-                </dxc:Series3D>
+                            <dxc:Series3D.View>
+                                <dxc:SurfaceSeriesView>
+                                    <dxc:SurfaceSeriesView.FillStyle>
+                                        <dxc:SolidFillStyle Brush="#C1E0E5" />
+                                    </dxc:SurfaceSeriesView.FillStyle>
+                                </dxc:SurfaceSeriesView>
+                            </dxc:Series3D.View>
+                        </dxc:Series3D>
 
-                <dxc:Series3D>
-                    <dxc:SeriesPoint3DMatrixAdapter DataContext="{Binding Measurements}"
+                        <dxc:Series3D>
+                            <dxc:SeriesPoint3DMatrixAdapter DataContext="{Binding Measurements}"
                             XArguments="{Binding Impedances}" YArguments="{Binding RightLine}"
                             Values="{Binding RightCurtainValues}" />
-                    <dxc:Series3D.View>
-                        <dxc:SurfaceSeriesView>
-                            <dxc:SurfaceSeriesView.FillStyle>
-                                <dxc:SolidFillStyle Brush="#C1E0E5" />
-                            </dxc:SurfaceSeriesView.FillStyle>
-                        </dxc:SurfaceSeriesView>
-                    </dxc:Series3D.View>
-                </dxc:Series3D>
+                            <dxc:Series3D.View>
+                                <dxc:SurfaceSeriesView>
+                                    <dxc:SurfaceSeriesView.FillStyle>
+                                        <dxc:SolidFillStyle Brush="#C1E0E5" />
+                                    </dxc:SurfaceSeriesView.FillStyle>
+                                </dxc:SurfaceSeriesView>
+                            </dxc:Series3D.View>
+                        </dxc:Series3D>
 
-            </dxc:Series3DStorage>
-        </dxc:Chart3DControl>
-
+                    </dxc:Series3DStorage>
+                </dxc:Chart3DControl>
+            </dx:DXTabItem>
+        </dx:DXTabControl>
     </Grid>
 </dx:ThemedWindow>

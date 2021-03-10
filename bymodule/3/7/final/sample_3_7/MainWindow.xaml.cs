@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +15,8 @@ using DevExpress.Xpf.Core;
 using DevExpress.Xpf.Core.DataSources;
 using EventsDB.EF;
 using System.Data.Entity;
+using DevExpress.Xpf.Editors;
+using System.IO;
 
 namespace sample_3_7 {
   /// <summary>
@@ -26,14 +28,14 @@ namespace sample_3_7 {
     }
 
     private void PopupImageEditSettings_ConvertEditValue(DependencyObject sender, DevExpress.Xpf.Editors.ConvertEditValueEventArgs args) {
-      var image = args.ImageSource as BitmapImage;
-      if (image != null) {
-        var stream = image.StreamSource;
-        var imageBytes = new byte[stream.Length];
-        stream.Position = 0;
-        stream.Read(imageBytes, 0, imageBytes.Length);
-        args.EditValue = imageBytes;
-        args.Handled = true;
+      if (args.ImageSource is BitmapSource source) {
+        using (var stream = new MemoryStream()) {
+          var encoder = new JpegBitmapEncoder();
+          encoder.Frames.Add(BitmapFrame.Create(source));
+          encoder.Save(stream);
+          args.EditValue = stream.ToArray();
+          args.Handled = true;
+        }
       }
     }
 

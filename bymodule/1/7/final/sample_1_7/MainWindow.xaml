@@ -6,7 +6,7 @@
         xmlns:EF="clr-namespace:CountriesDB.EF;assembly=DXTraining.CountriesDB.EF"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-        xmlns:dxut="clr-namespace:DevExpress.Xpf.Utils.Themes;assembly=DevExpress.Xpf.Core.v20.1"
+        xmlns:dxut="clr-namespace:DevExpress.Xpf.Utils.Themes;assembly=DevExpress.Xpf.Core.v20.2"
         xmlns:local="clr-namespace:sample_1_7"
         xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
         x:Class="sample_1_7.MainWindow" Title="MainWindow" Height="350" Width="525">
@@ -76,7 +76,8 @@
                     <dxb:BarStaticItem x:Name="biColumnValue" Content="1" />
                 </dxr:RibbonStatusBarControl.LeftItems>
                 <dxr:RibbonStatusBarControl.RightItems>
-                    <dxb:BarCheckItem x:Name="biLeft" GroupIndex="1" IsChecked="True"
+                    <dxb:BarCheckItem x:Name="biLeft" GroupIndex="1"
+                            IsChecked="True"
                             Glyph="{dx:DXImage SvgImages/Format/AlignLeft.svg}" />
                     <dxb:BarCheckItem x:Name="biCenter" GroupIndex="1"
                             Glyph="{dx:DXImage SvgImages/Format/AlignCenter.svg}" />

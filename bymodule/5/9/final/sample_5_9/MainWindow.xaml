@@ -30,14 +30,14 @@
                         <dxpg:PivotGridCustomTotal SummaryType="Count" />
                     </dxpg:PivotGridField.CustomTotals>
                 </dxpg:PivotGridField>
-                <dxpg:PivotGridField Area="FilterArea" GroupInterval="Date" Caption="Sale Date"
-                        SummaryType="Count" DataBinding="{dxpg:DataSourceColumnBinding Sale_Date}"
+                <dxpg:PivotGridField Area="FilterArea" Caption="Sale Date"
+                        SummaryType="Count" DataBinding="{dxpg:DataSourceColumnBinding Sale_Date, GroupInterval=Date}"
                         AreaIndex="4" />
-                <dxpg:PivotGridField Area="ColumnArea" GroupInterval="DateMonth" SummaryType="Count"
-                        Caption="Sale Month" DataBinding="{dxpg:DataSourceColumnBinding Sale_Date}"
+                <dxpg:PivotGridField Area="ColumnArea" SummaryType="Count"
+                        Caption="Sale Month" DataBinding="{dxpg:DataSourceColumnBinding Sale_Date, GroupInterval=DateMonth}"
                         AreaIndex="0" />
-                <dxpg:PivotGridField Area="FilterArea" GroupInterval="DateYear" Caption="Sale Year"
-                        SummaryType="Count" DataBinding="{dxpg:DataSourceColumnBinding Sale_Date}"
+                <dxpg:PivotGridField Area="FilterArea" Caption="Sale Year"
+                        SummaryType="Count" DataBinding="{dxpg:DataSourceColumnBinding Sale_Date, GroupInterval=DateYear}"
                         AreaIndex="6" />
                 <dxpg:PivotGridField Area="RowArea" Caption="Sector" SummaryType="Count"
                         DataBinding="{dxpg:DataSourceColumnBinding Sector.Sector_Name}"

@@ -42,20 +42,20 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Mvvm.v20.1" />
-    <Reference Include="DevExpress.Xpf.CodeView.v20.1" />
-    <Reference Include="DevExpress.Data.Desktop.v20.1" />
-    <Reference Include="DevExpress.Xpf.Core.v20.1" />
-    <Reference Include="DevExpress.Data.v20.1" />
-    <Reference Include="DevExpress.Pdf.v20.1.Core" />
-    <Reference Include="DevExpress.Office.v20.1.Core" />
-    <Reference Include="DevExpress.RichEdit.v20.1.Core" />
-    <Reference Include="DevExpress.RichEdit.v20.1.Export" />
-    <Reference Include="DevExpress.Printing.v20.1.Core" />
-    <Reference Include="DevExpress.Xpf.Printing.v20.1" />
-    <Reference Include="DevExpress.Xpf.Grid.v20.1" />
-    <Reference Include="DevExpress.Xpf.Grid.v20.1.Core" />
-    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v20.1" />
+    <Reference Include="DevExpress.Mvvm.v20.2" />
+    <Reference Include="DevExpress.Xpf.CodeView.v20.2" />
+    <Reference Include="DevExpress.Data.Desktop.v20.2" />
+    <Reference Include="DevExpress.Xpf.Core.v20.2" />
+    <Reference Include="DevExpress.Data.v20.2" />
+    <Reference Include="DevExpress.Pdf.v20.2.Core" />
+    <Reference Include="DevExpress.Office.v20.2.Core" />
+    <Reference Include="DevExpress.RichEdit.v20.2.Core" />
+    <Reference Include="DevExpress.RichEdit.v20.2.Export" />
+    <Reference Include="DevExpress.Printing.v20.2.Core" />
+    <Reference Include="DevExpress.Xpf.Printing.v20.2" />
+    <Reference Include="DevExpress.Xpf.Grid.v20.2" />
+    <Reference Include="DevExpress.Xpf.Grid.v20.2.Core" />
+    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v20.2" />
     <Reference Include="DXTraining.EventsDB.EF, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\DXTraining.EventsDB.EF.1.0.3\lib\net452\DXTraining.EventsDB.EF.dll</HintPath>
       <Private>True</Private>
