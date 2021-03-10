@@ -1,0 +1,22 @@
+﻿<dx:ThemedWindow xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        x:Class="sample_1_5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+        xmlns:local="clr-namespace:sample_1_5" mc:Ignorable="d" Title="MainWindow" Height="450"
+        Width="800">
+    <Grid>
+        <dxr:RibbonControl RibbonStyle="Office2019">
+            <dxr:RibbonDefaultPageCategory>
+                <dxr:RibbonPage Caption="Home">
+                    <dxr:RibbonPageGroup Caption="Tools">
+                        <dxb:BarButtonItem Content="Click me" RibbonStyle="Large" />
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+            </dxr:RibbonDefaultPageCategory>
+        </dxr:RibbonControl>
+    </Grid>
+</dx:ThemedWindow>

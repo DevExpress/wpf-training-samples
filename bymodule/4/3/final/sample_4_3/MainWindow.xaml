@@ -1,0 +1,109 @@
+﻿<dx:ThemedWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduling"
+        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+        xmlns:dxscht="http://schemas.devexpress.com/winfx/2008/xaml/scheduling/themekeys"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        x:Class="sample_4_3.MainWindow" Title="MainWindow" Height="350" Width="700">
+    <DockPanel>
+        <dxr:RibbonControl DockPanel.Dock="Top"
+                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=RibbonControl}}"
+                dxsch:SchedulerControl.Scheduler="{Binding ElementName=scheduler}">
+            <dxr:RibbonDefaultPageCategory
+                    Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Categories_Default}}">
+                <dxr:RibbonPage x:Name="Pages_Home"
+                        Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Pages_Home}}">
+                    <dxr:RibbonPageGroup Caption="File Operations">
+                        <dxb:BarButtonItem Content="Open"
+                                Glyph="{dx:DXImage SvgImages/Actions/Open.svg}" RibbonStyle="Large" ItemClick="BarButtonItem_ItemClick" />
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup x:Name="Groups_Home_Appointment"
+                            Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Groups_Home_Appointment}}">
+                        <dxb:BarButtonItem x:Name="Items_Home_Appointment_NewAppointment"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_Appointment_NewAppointment}}" />
+                        <dxb:BarButtonItem x:Name="Items_Home_Appointment_NewRecurringAppointment"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_Appointment_NewRecurringAppointment}}" />
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup x:Name="Groups_Home_Navigate"
+                            Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Groups_Home_Navigate}}">
+                        <dxb:BarButtonItem x:Name="Items_Home_Navigate_Backward"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_Navigate_Backward}}" />
+                        <dxb:BarButtonItem x:Name="Items_Home_Navigate_Forward"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_Navigate_Forward}}" />
+                        <dxb:BarButtonItem x:Name="Items_Home_Navigate_GotoToday"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_Navigate_GotoToday}}" />
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup x:Name="Groups_Home_Arrange"
+                            Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Groups_Home_Arrange}}">
+                        <dxb:BarLinkContainerItem x:Name="Items_Home_Arrange_Views"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_Arrange_Views}}" />
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup x:Name="Groups_Home_GroupBy"
+                            Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Groups_Home_GroupBy}}">
+                        <dxb:BarCheckItem x:Name="Items_Home_GroupBy_GroupByNone"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_GroupBy_GroupByNone}}" />
+                        <dxb:BarCheckItem x:Name="Items_Home_GroupBy_GroupByDate"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_GroupBy_GroupByDate}}" />
+                        <dxb:BarCheckItem x:Name="Items_Home_GroupBy_GroupByResource"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_GroupBy_GroupByResource}}" />
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup x:Name="Groups_Home_TimeScale"
+                            Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Groups_Home_TimeScale}}">
+                        <dxb:BarSubItem x:Name="Items_Home_TimeScale_SwitchTimeScale"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_TimeScale_SwitchTimeScale}}" />
+                        <dxb:BarEditItem x:Name="Items_Home_TimeScale_IntervalCount"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_TimeScale_IntervalCount}}" />
+                        <dxb:BarSubItem x:Name="Items_Home_TimeScale_TimeScaleCaptions"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_TimeScale_ShowTimeScaleCaptions}}" />
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup x:Name="Groups_Home_Layout"
+                            Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Groups_Home_Layout}}">
+                        <dxb:BarCheckItem x:Name="Items_Home_Layout_ShowWorkTimeOnly"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_Layout_ShowWorkTimeOnly}}" />
+                        <dxb:BarSubItem x:Name="Items_Home_Layout_SwitchSnapToCells"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_Layout_SwitchSnapToCells}}" />
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup x:Name="Groups_Home_Window"
+                            Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Groups_Home_Window}}">
+                        <dxb:BarButtonItem x:Name="Items_Home_Window_ShowRemindersWindow"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_Window_ShowRemindersWindow}}" />
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+            </dxr:RibbonDefaultPageCategory>
+            <dxr:RibbonPageCategory x:Name="Categories_Appointment"
+                    Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Categories_Appointment}}">
+                <dxr:RibbonPage x:Name="Pages_Appointment"
+                        Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Pages_Appointment}}">
+                    <dxr:RibbonPageGroup x:Name="Groups_Appointment_Actions"
+                            Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Groups_Appointment_Actions}}">
+                        <dxb:BarButtonItem x:Name="Items_Appointment_Actions_Open"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Actions_Open}}" />
+                        <dxb:BarButtonItem x:Name="Items_Appointment_Actions_Delete"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Actions_Delete}}" />
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup x:Name="Groups_Appointment_Options"
+                            Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Groups_Appointment_Options}}">
+                        <dxb:BarSubItem x:Name="Items_Appointment_Options_ShowTimeAs"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Options_ShowTimeAs}}" />
+                        <dxb:BarSubItem x:Name="Items_Appointment_Options_LabelAs"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Options_LabelAs}}" />
+                        <dxb:BarSubItem x:Name="Items_Appointment_Options_Reminder"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Options_Reminder}}" />
+                        <dxb:BarCheckItem x:Name="Items_Appointment_Options_Recurrence"
+                                Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Options_Recurrence}}" />
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+            </dxr:RibbonPageCategory>
+        </dxr:RibbonControl>
+        <dxe:DateNavigator DockPanel.Dock="Right" Width="300">
+
+            <dxe:DateNavigator.StyleSettings>
+                <dxsch:SchedulerDateNavigatorStyleSettings
+                        Scheduler="{Binding ElementName=scheduler}" />
+            </dxe:DateNavigator.StyleSettings>
+        </dxe:DateNavigator>
+        <dxsch:SchedulerControl x:Name="scheduler" ShowDateNavigationPanel="True" />
+    </DockPanel>
+</dx:ThemedWindow>

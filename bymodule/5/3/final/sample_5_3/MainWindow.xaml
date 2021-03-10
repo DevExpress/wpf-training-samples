@@ -1,0 +1,57 @@
+﻿<dx:ThemedWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:local="clr-namespace:sample_5_3"
+        xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges"
+        x:Class="sample_5_3.MainWindow" Title="MainWindow" Height="350" Width="525">
+    <dx:ThemedWindow.DataContext>
+        <local:ViewModel />
+    </dx:ThemedWindow.DataContext>
+    <Grid>
+        <dxga:CircularGaugeControl>
+            <dxga:CircularGaugeControl.Scales>
+                <dxga:ArcScale EndValue="{Binding ScaleMax}">
+                    <dxga:ArcScale.Layers>
+                        <dxga:ArcScaleLayer>
+                            <dxga:ArcScaleLayer.Presentation>
+                                <dxga:EcoArcScaleBackgroundLayerPresentation />
+                            </dxga:ArcScaleLayer.Presentation>
+                        </dxga:ArcScaleLayer>
+                    </dxga:ArcScale.Layers>
+                    <dxga:ArcScale.Needles>
+                        <dxga:ArcScaleNeedle Value="{Binding Count}">
+                            <dxga:ArcScaleNeedle.Animation>
+                                <dxga:IndicatorAnimation />
+                            </dxga:ArcScaleNeedle.Animation>
+                            <dxga:ArcScaleNeedle.Options>
+                                <dxga:ArcScaleNeedleOptions EndOffset="57" />
+                            </dxga:ArcScaleNeedle.Options>
+                            <dxga:ArcScaleNeedle.Presentation>
+                                <dxga:SmartArcScaleNeedlePresentation />
+                            </dxga:ArcScaleNeedle.Presentation>
+                        </dxga:ArcScaleNeedle>
+                    </dxga:ArcScale.Needles>
+                    <dxga:ArcScale.Ranges>
+                        <dxga:ArcScaleRange>
+                            <dxga:ArcScaleRange.Options>
+                                <dxga:RangeOptions Thickness="15" />
+                            </dxga:ArcScaleRange.Options>
+                            <dxga:ArcScaleRange.Presentation>
+                                <dxga:DefaultArcScaleRangePresentation Fill="#CCFF5959" />
+                            </dxga:ArcScaleRange.Presentation>
+                        </dxga:ArcScaleRange>
+                    </dxga:ArcScale.Ranges>
+                </dxga:ArcScale>
+            </dxga:CircularGaugeControl.Scales>
+            <dxga:CircularGaugeControl.Layers>
+                <dxga:CircularGaugeLayer>
+                    <dxga:CircularGaugeLayer.Presentation>
+                        <dxga:CosmicCircularGaugeBackgroundLayerPresentation />
+                    </dxga:CircularGaugeLayer.Presentation>
+                </dxga:CircularGaugeLayer>
+            </dxga:CircularGaugeControl.Layers>
+
+        </dxga:CircularGaugeControl>
+    </Grid>
+</dx:ThemedWindow>

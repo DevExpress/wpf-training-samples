@@ -1,0 +1,28 @@
+﻿<dx:ThemedWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:local="clr-namespace:DataLayer" 
+    x:Class="DataLayer.BasicCollectionWindow"
+    Title="Basic collection" Height="350" Width="525">
+    <dx:ThemedWindow.DataContext>
+        <local:BasicCollectionViewModel />
+    </dx:ThemedWindow.DataContext>
+    <Grid>
+        <dxg:GridControl ItemsSource="{Binding People}" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True">
+            <dxg:GridControl.View>
+                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
+            </dxg:GridControl.View>
+            <dxg:GridColumn FieldName="Name"/>
+            <dxg:GridColumn FieldName="Age"/>
+            <dxg:GridColumn FieldName="Over70" 
+                            UnboundType="Boolean" 
+                            Header="Over 70" 
+                            UnboundExpression="[Age] &gt; 70"
+                            ReadOnly="True"/>
+        </dxg:GridControl>
+
+    </Grid>
+</dx:ThemedWindow>

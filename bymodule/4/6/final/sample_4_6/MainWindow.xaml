@@ -1,0 +1,30 @@
+﻿<dx:ThemedWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxgn="http://schemas.devexpress.com/winfx/2008/xaml/gantt"
+        xmlns:local="clr-namespace:sample_4_6" x:Class="sample_4_6.MainWindow" Title="MainWindow"
+        Height="325" Width="500">
+    <dx:ThemedWindow.DataContext>
+        <local:GanttViewModel />
+    </dx:ThemedWindow.DataContext>
+    <Grid>
+        <dxgn:GanttControl ItemsSource="{Binding Tasks}">
+            <dxgn:GanttControl.View>
+                <dxgn:GanttView KeyFieldName="Id" ParentFieldName="ParentId"
+                        DurationMapping="Duration" StartDateMapping="StartDate" NameMapping="Name"
+                        PredecessorLinksPath="Predecessors" Loaded="GanttView_Loaded"
+                        RowMinHeight="28" TaskContentPosition="Left" ShowIndicator="False">
+
+                    <dxgn:GanttView.PredecessorLinkMappings>
+                        <dxgn:GanttPredecessorLinkMappings PredecessorTask="." />
+                    </dxgn:GanttView.PredecessorLinkMappings>
+                </dxgn:GanttView>
+            </dxgn:GanttControl.View>
+            <dxgn:GanttColumn BindTo="Name" />
+            <dxgn:GanttColumn BindTo="StartDate" />
+            <dxgn:GanttColumn BindTo="FinishDate" />
+            <dxgn:GanttColumn BindTo="Duration" />
+            <dxgn:GanttColumn FieldName="Extra" />
+        </dxgn:GanttControl>
+    </Grid>
+</dx:ThemedWindow>

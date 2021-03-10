@@ -1,0 +1,153 @@
+﻿<dx:ThemedWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+        xmlns:local="clr-namespace:sample_5_6" x:Class="sample_5_6.MainWindow" Title="MainWindow"
+        Height="450" Width="700">
+    <dx:ThemedWindow.DataContext>
+        <local:ViewModel />
+    </dx:ThemedWindow.DataContext>
+    <Grid>
+        <dx:DXTabControl SelectedIndex="2">
+            <dx:DXTabItem Header="Chart Sample 1">
+                <dxc:ChartControl x:Name="chart" DataSource="{Binding TopTenByPopulation}">
+                    <dxc:ChartControl.Titles>
+                        <dxc:Title VerticalAlignment="Top" HorizontalAlignment="Center" Dock="Top"
+                                Content="Top Population Values" />
+                    </dxc:ChartControl.Titles>
+                    <dxc:ChartControl.Legends>
+                        <dxc:Legend />
+                    </dxc:ChartControl.Legends>
+                    <dxc:XYDiagram2D>
+                        <dxc:BarSideBySideSeries2D ValueDataMember="Population"
+                                LabelsVisibility="True" DisplayName="Population"
+                                ArgumentDataMember="Name">
+                            <dxc:BarSideBySideSeries2D.Label>
+                                <dxc:SeriesLabel dxc:BarSideBySideSeries2D.LabelPosition="Outside" />
+                            </dxc:BarSideBySideSeries2D.Label>
+                            <dxc:SeriesPoint Argument="1" Value="6.5" />
+                            <dxc:SeriesPoint Argument="2" Value="5.5" />
+                            <dxc:SeriesPoint Argument="3" Value="12.5" />
+                            <dxc:SeriesPoint Argument="4" Value="11.5" />
+                            <dxc:SeriesPoint Argument="5" Value="18.5" />
+                        </dxc:BarSideBySideSeries2D>
+                    </dxc:XYDiagram2D>
+                </dxc:ChartControl>
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="Chart Sample 2">
+                <dxc:ChartControl DataSource="{Binding TopTenByPopulation}"
+                        CustomDrawSeriesPoint="ChartControl_CustomDrawSeriesPoint"
+                        CustomDrawCrosshair="ChartControl_CustomDrawCrosshair">
+                    <dxc:XYDiagram2D>
+                        <dxc:XYDiagram2D.AxisY>
+                            <dxc:AxisY2D>
+                                <dxc:AxisY2D.AutoScaleBreaks>
+                                    <dxc:AutoScaleBreaks Enabled="True" />
+                                </dxc:AxisY2D.AutoScaleBreaks>
+                                <dxc:AxisY2D.Title>
+                                    <dxc:AxisTitle Content="Area" Visible="True" />
+                                </dxc:AxisY2D.Title>
+                            </dxc:AxisY2D>
+                        </dxc:XYDiagram2D.AxisY>
+                        <dxc:XYDiagram2D.AxisX>
+                            <dxc:AxisX2D>
+                                <dxc:AxisX2D.AutoScaleBreaks>
+                                    <dxc:AutoScaleBreaks Enabled="True" />
+                                </dxc:AxisX2D.AutoScaleBreaks>
+                                <dxc:AxisX2D.Title>
+                                    <dxc:AxisTitle Content="Population" Visible="True" />
+                                </dxc:AxisX2D.Title>
+                            </dxc:AxisX2D>
+                        </dxc:XYDiagram2D.AxisX>
+                        <dxc:PointSeries2D DisplayName="Population and Area" LabelsVisibility="True"
+                                ArgumentDataMember="Population" ValueDataMember="AreaKM2"
+                                ColorEach="True">
+                            <dxc:PointSeries2D.MarkerModel>
+                                <dxc:CrossMarker2DModel />
+                            </dxc:PointSeries2D.MarkerModel>
+                            <dxc:PointSeries2D.Label>
+                                <dxc:SeriesLabel ResolveOverlappingMode="JustifyAllAroundPoint"
+                                        TextPattern="Area: {V}, Population: {A}" />
+                            </dxc:PointSeries2D.Label>
+                            <dxc:SeriesPoint Argument="1" Value="6.5" />
+                            <dxc:SeriesPoint Argument="2" Value="5.5" />
+                            <dxc:SeriesPoint Argument="3" Value="12.5" />
+                            <dxc:SeriesPoint Argument="4" Value="11.5" />
+                            <dxc:SeriesPoint Argument="5" Value="18.5" />
+                        </dxc:PointSeries2D>
+                    </dxc:XYDiagram2D>
+                </dxc:ChartControl>
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="3D Chart Sample">
+            </dx:DXTabItem>
+        </dx:DXTabControl>
+        <dxc:Chart3DControl AspectRatio="1 1 1">
+            <dxc:Chart3DControl.ZAxis>
+                <dxc:ZAxis3D>
+                    <dxc:ZAxis3D.WholeRange>
+                        <dxc:Range MaxValue="60" MinValue="0" />
+                    </dxc:ZAxis3D.WholeRange>
+                </dxc:ZAxis3D>
+            </dxc:Chart3DControl.ZAxis>
+            <dxc:Chart3DControl.ContentTransform>
+                <Transform3DGroup>
+                    <RotateTransform3D>
+                        <RotateTransform3D.Rotation>
+                            <AxisAngleRotation3D x:Name="AX" Axis="1,0,0" Angle="50" />
+                        </RotateTransform3D.Rotation>
+                    </RotateTransform3D>
+                    <RotateTransform3D>
+                        <RotateTransform3D.Rotation>
+                            <AxisAngleRotation3D x:Name="AY" Axis="0,1,0" Angle="65" />
+                        </RotateTransform3D.Rotation>
+                    </RotateTransform3D>
+                    <RotateTransform3D>
+                        <RotateTransform3D.Rotation>
+                            <AxisAngleRotation3D x:Name="AZ" Axis="0,0,1" Angle="50" />
+                        </RotateTransform3D.Rotation>
+                    </RotateTransform3D>
+                </Transform3DGroup>
+            </dxc:Chart3DControl.ContentTransform>
+            <dxc:Series3DStorage>
+                <dxc:Series3D>
+                    <dxc:Series3D.View>
+                        <dxc:SurfaceSeriesView x:Name="surfaceView">
+                        </dxc:SurfaceSeriesView>
+                    </dxc:Series3D.View>
+                    <dxc:SeriesPoint3DDataSourceAdapter DataSource="{Binding Measurements}"
+                            ValueDataMember="Voltage" XArgumentDataMember="Impedance"
+                            YArgumentDataMember="Phase" />
+                </dxc:Series3D>
+
+                <dxc:Series3D>
+                    <dxc:SeriesPoint3DMatrixAdapter DataContext="{Binding Measurements}"
+                            XArguments="{Binding FrontLine}" YArguments="{Binding Phases}"
+                            Values="{Binding FrontCurtainValues}" />
+                    <dxc:Series3D.View>
+                        <dxc:SurfaceSeriesView>
+                            <dxc:SurfaceSeriesView.FillStyle>
+                                <dxc:SolidFillStyle Brush="#C1E0E5" />
+                            </dxc:SurfaceSeriesView.FillStyle>
+                        </dxc:SurfaceSeriesView>
+                    </dxc:Series3D.View>
+                </dxc:Series3D>
+
+                <dxc:Series3D>
+                    <dxc:SeriesPoint3DMatrixAdapter DataContext="{Binding Measurements}"
+                            XArguments="{Binding Impedances}" YArguments="{Binding RightLine}"
+                            Values="{Binding RightCurtainValues}" />
+                    <dxc:Series3D.View>
+                        <dxc:SurfaceSeriesView>
+                            <dxc:SurfaceSeriesView.FillStyle>
+                                <dxc:SolidFillStyle Brush="#C1E0E5" />
+                            </dxc:SurfaceSeriesView.FillStyle>
+                        </dxc:SurfaceSeriesView>
+                    </dxc:Series3D.View>
+                </dxc:Series3D>
+
+            </dxc:Series3DStorage>
+        </dxc:Chart3DControl>
+
+    </Grid>
+</dx:ThemedWindow>

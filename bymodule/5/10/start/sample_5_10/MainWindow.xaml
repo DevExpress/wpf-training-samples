@@ -1,0 +1,56 @@
+﻿<dx:ThemedWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:local="clr-namespace:sample_5_10"
+        xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid"
+        x:Class="sample_5_10.MainWindow" Title="MainWindow" Height="500" Width="800">
+    <dx:ThemedWindow.DataContext>
+        <local:ViewModel />
+    </dx:ThemedWindow.DataContext>
+    <Grid>
+        <dxpg:PivotGridControl DataSource="{Binding Sales}" DataProcessingEngine="Optimized"
+                FieldListStyle="Excel2007">
+            <dxpg:PivotGridControl.Fields>
+                <dxpg:PivotGridField Area="FilterArea" Caption="Channel" SummaryType="Count"
+                        DataBinding="{dxpg:DataSourceColumnBinding Channel.Channel_Name}"
+                        AreaIndex="0" />
+                <dxpg:PivotGridField Area="FilterArea" CellFormat="F2" TotalCellFormat="F2"
+                        DataBinding="{dxpg:DataSourceColumnBinding Cost_per_Unit}" AreaIndex="1" />
+                <dxpg:PivotGridField Area="FilterArea" CellFormat="F2" TotalCellFormat="F2"
+                        DataBinding="{dxpg:DataSourceColumnBinding Discount}" AreaIndex="2" />
+                <dxpg:PivotGridField Area="FilterArea" Caption="Product" SummaryType="Count"
+                        DataBinding="{dxpg:DataSourceColumnBinding Product.Product_Name}"
+                        AreaIndex="3" />
+                <dxpg:PivotGridField Area="RowArea" Caption="Region" SummaryType="Count"
+                        DataBinding="{dxpg:DataSourceColumnBinding Region.Region_Name}"
+                        AreaIndex="0" TotalsVisibility="CustomTotals">
+                    <dxpg:PivotGridField.CustomTotals>
+                        <dxpg:PivotGridCustomTotal SummaryType="Average" />
+                        <dxpg:PivotGridCustomTotal SummaryType="Count" />
+                    </dxpg:PivotGridField.CustomTotals>
+                </dxpg:PivotGridField>
+                <dxpg:PivotGridField Area="FilterArea" GroupInterval="Date" Caption="Sale Date"
+                        SummaryType="Count" DataBinding="{dxpg:DataSourceColumnBinding Sale_Date}"
+                        AreaIndex="4" />
+                <dxpg:PivotGridField Area="ColumnArea" GroupInterval="DateMonth" SummaryType="Count"
+                        Caption="Sale Month" DataBinding="{dxpg:DataSourceColumnBinding Sale_Date}"
+                        AreaIndex="0" />
+                <dxpg:PivotGridField Area="FilterArea" GroupInterval="DateYear" Caption="Sale Year"
+                        SummaryType="Count" DataBinding="{dxpg:DataSourceColumnBinding Sale_Date}"
+                        AreaIndex="6" />
+                <dxpg:PivotGridField Area="RowArea" Caption="Sector" SummaryType="Count"
+                        DataBinding="{dxpg:DataSourceColumnBinding Sector.Sector_Name}"
+                        AreaIndex="1" />
+                <dxpg:PivotGridField Area="DataArea" ShowSummaryTypeName="True" CellFormat="F2"
+                        TotalCellFormat="F2" DataBinding="{dxpg:DataSourceColumnBinding Total_Cost}"
+                        AreaIndex="0" />
+                <dxpg:PivotGridField Area="FilterArea" SummaryType="Average" CellFormat="F2"
+                        TotalCellFormat="F2" ShowSummaryTypeName="True"
+                        DataBinding="{dxpg:DataSourceColumnBinding Total_Cost}" AreaIndex="7" />
+                <dxpg:PivotGridField Area="FilterArea"
+                        DataBinding="{dxpg:DataSourceColumnBinding Units}" AreaIndex="5" />
+            </dxpg:PivotGridControl.Fields>
+        </dxpg:PivotGridControl>
+    </Grid>
+</dx:ThemedWindow>

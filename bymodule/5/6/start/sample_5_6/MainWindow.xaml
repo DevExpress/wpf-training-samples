@@ -1,0 +1,45 @@
+﻿<dx:ThemedWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+        xmlns:local="clr-namespace:sample_5_6" x:Class="sample_5_6.MainWindow" Title="MainWindow"
+        Height="450" Width="700">
+    <dx:ThemedWindow.DataContext>
+        <local:ViewModel />
+    </dx:ThemedWindow.DataContext>
+    <Grid>
+        <dx:DXTabControl SelectedIndex="1">
+            <dx:DXTabItem Header="Chart Sample 1">
+                <dxc:ChartControl x:Name="chart" DataSource="{Binding TopTenByPopulation}">
+                    <dxc:ChartControl.Titles>
+                        <dxc:Title VerticalAlignment="Top" HorizontalAlignment="Center" Dock="Top"
+                                Content="Top Population Values" />
+                    </dxc:ChartControl.Titles>
+                    <dxc:ChartControl.Legends>
+                        <dxc:Legend />
+                    </dxc:ChartControl.Legends>
+                    <dxc:XYDiagram2D>
+                        <dxc:BarSideBySideSeries2D ValueDataMember="Population"
+                                LabelsVisibility="True" DisplayName="Population"
+                                ArgumentDataMember="Name">
+                            <dxc:BarSideBySideSeries2D.Label>
+                                <dxc:SeriesLabel dxc:BarSideBySideSeries2D.LabelPosition="Outside" />
+                            </dxc:BarSideBySideSeries2D.Label>
+                            <dxc:SeriesPoint Argument="1" Value="6.5" />
+                            <dxc:SeriesPoint Argument="2" Value="5.5" />
+                            <dxc:SeriesPoint Argument="3" Value="12.5" />
+                            <dxc:SeriesPoint Argument="4" Value="11.5" />
+                            <dxc:SeriesPoint Argument="5" Value="18.5" />
+                        </dxc:BarSideBySideSeries2D>
+                    </dxc:XYDiagram2D>
+                </dxc:ChartControl>
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="Chart Sample 2">
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="3D Chart Sample">
+            </dx:DXTabItem>
+        </dx:DXTabControl>
+
+    </Grid>
+</dx:ThemedWindow>

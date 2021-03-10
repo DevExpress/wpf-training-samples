@@ -1,0 +1,107 @@
+﻿<dx:ThemedWindow xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+        xmlns:EF="clr-namespace:CountriesDB.EF;assembly=DXTraining.CountriesDB.EF"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxut="clr-namespace:DevExpress.Xpf.Utils.Themes;assembly=DevExpress.Xpf.Core.v20.1"
+        xmlns:local="clr-namespace:sample_1_7"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        x:Class="sample_1_7.MainWindow" Title="MainWindow" Height="350" Width="525">
+    <dx:ThemedWindow.DataContext>
+        <local:ViewModel />
+    </dx:ThemedWindow.DataContext>
+    <Grid>
+        <DockPanel>
+            <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2019">
+                <dxr:RibbonControl.ApplicationMenu>
+                    <dxr:BackstageViewControl>
+                        <dxr:BackstageTabItem Content="Last documents">
+                            <Grid />
+                        </dxr:BackstageTabItem>
+                        <dxr:BackstageTabItem Content="Properties">
+                            <Grid />
+                        </dxr:BackstageTabItem>
+                        <dxr:BackstageButtonItem Content="Close"
+                                Glyph="{dx:DXImage SvgImages/RichEdit/CloseHeaderAndFooter.svg}" />
+                    </dxr:BackstageViewControl>
+                </dxr:RibbonControl.ApplicationMenu>
+                <dxr:RibbonControl.ToolbarItems>
+                    <dxb:BarButtonItemLink BarItemName="biOpen" />
+                    <dxb:BarButtonItemLink BarItemName="biNew" />
+                </dxr:RibbonControl.ToolbarItems>
+                <dxr:RibbonDefaultPageCategory>
+                    <dxr:RibbonPage Caption="Home">
+                        <dxr:RibbonPageGroup Caption="File" IsCaptionButtonEnabled="True">
+                            <dxb:BarButtonItem x:Name="biOpen" Content="Open" RibbonStyle="All"
+                                    Glyph="{dx:DXImage SvgImages/Actions/Open.svg}" />
+                            <dxb:BarButtonItem x:Name="biNew" Content="New" RibbonStyle="All"
+                                    Glyph="{dx:DXImage SvgImages/Actions/New.svg}" />
+                        </dxr:RibbonPageGroup>
+                        <dxr:RibbonPageGroup Caption="Themes">
+                            <dxb:BarButtonItem Content="Set Theme"
+                                    ItemClick="BarButtonItem_ItemClick" />
+                            <dxb:BarSubItem Content="Choose Theme">
+                                <dxmvvm:Interaction.Behaviors>
+                                    <dxb:BarSubItemThemeSelectorBehavior ShowMode="GroupedList" />
+                                </dxmvvm:Interaction.Behaviors>
+                            </dxb:BarSubItem>
+                            <dxr:RibbonGalleryBarItem>
+                                <dxmvvm:Interaction.Behaviors>
+                                    <dxr:RibbonGalleryItemThemeSelectorBehavior />
+                                </dxmvvm:Interaction.Behaviors>
+                                <dxr:RibbonGalleryBarItem.Gallery>
+                                    <dxb:Gallery ColCount="4" />
+                                </dxr:RibbonGalleryBarItem.Gallery>
+                            </dxr:RibbonGalleryBarItem>
+                            <dxr:RibbonGalleryBarItem>
+                                <dxmvvm:Interaction.Behaviors>
+                                    <dxr:RibbonGalleryItemThemePaletteSelectorBehavior />
+                                </dxmvvm:Interaction.Behaviors>
+                                <dxr:RibbonGalleryBarItem.Gallery>
+                                    <dxb:Gallery ColCount="4" />
+                                </dxr:RibbonGalleryBarItem.Gallery>
+                            </dxr:RibbonGalleryBarItem>
+                        </dxr:RibbonPageGroup>
+                    </dxr:RibbonPage>
+                </dxr:RibbonDefaultPageCategory>
+            </dxr:RibbonControl>
+            <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom">
+                <dxr:RibbonStatusBarControl.LeftItems>
+                    <dxb:BarStaticItem x:Name="biRow" Content="Row:" ShowBorder="False" />
+                    <dxb:BarStaticItem x:Name="biRowValue" Content="1" />
+                    <dxb:BarStaticItem x:Name="biColumn" Content="Column:" ShowBorder="False" />
+                    <dxb:BarStaticItem x:Name="biColumnValue" Content="1" />
+                </dxr:RibbonStatusBarControl.LeftItems>
+                <dxr:RibbonStatusBarControl.RightItems>
+                    <dxb:BarCheckItem x:Name="biLeft" GroupIndex="1" IsChecked="True"
+                            Glyph="{dx:DXImage SvgImages/Format/AlignLeft.svg}" />
+                    <dxb:BarCheckItem x:Name="biCenter" GroupIndex="1"
+                            Glyph="{dx:DXImage SvgImages/Format/AlignCenter.svg}" />
+                    <dxb:BarCheckItem x:Name="biRight" GroupIndex="1"
+                            Glyph="{dx:DXImage SvgImages/Format/AlignRight.svg}" />
+                </dxr:RibbonStatusBarControl.RightItems>
+            </dxr:RibbonStatusBarControl>
+            <Grid>
+                <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True"
+                        ItemsSource="{Binding Countries}">
+                    <dxg:GridControl.View>
+                        <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" />
+                    </dxg:GridControl.View>
+                    <dxg:GridColumn x:Name="colCode" FieldName="Code" IsSmart="True" />
+                    <dxg:GridColumn x:Name="colShortName" FieldName="ShortName" IsSmart="True" />
+                    <dxg:GridColumn x:Name="colOfficialName" FieldName="OfficialName" IsSmart="True" />
+                    <dxg:GridColumn x:Name="colCurrency" FieldName="Currency" IsSmart="True" />
+                    <dxg:GridColumn x:Name="colCapital" FieldName="Capital" IsSmart="True" />
+                    <dxg:GridColumn x:Name="colArea" FieldName="Area" IsSmart="True" />
+                    <dxg:GridColumn x:Name="colGDP" FieldName="GDP" IsSmart="True" />
+                    <dxg:GridColumn x:Name="colPopulation" FieldName="Population" IsSmart="True" />
+                    <dxg:GridColumn x:Name="colLanguages" FieldName="Languages" IsSmart="True" />
+                </dxg:GridControl>
+            </Grid>
+        </DockPanel>
+
+    </Grid>
+</dx:ThemedWindow>

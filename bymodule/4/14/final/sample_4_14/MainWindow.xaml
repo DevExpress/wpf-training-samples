@@ -1,0 +1,55 @@
+﻿<dx:ThemedWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+        xmlns:local="clr-namespace:sample_4_14"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        x:Class="sample_4_14.MainWindow" Title="MainWindow" Height="350" Width="525"
+        Closing="ThemedWindow_Closing" Loaded="ThemedWindow_Loaded" dx:DXSerializer.Enabled="True"
+        dx:WindowRestoreLayoutOptions.AllowRestoreStateForDisplayedWindow="True">
+    <dx:ThemedWindow.DataContext>
+        <local:ViewModel />
+    </dx:ThemedWindow.DataContext>
+    <DockPanel>
+        <dxr:RibbonControl RibbonStyle="Office2019" DockPanel.Dock="Top"
+                dx:DXSerializer.SerializationID="ribbon">
+            <dxr:RibbonDefaultPageCategory Caption="defaultCategory">
+                <dxr:RibbonPage Caption="Home">
+                    <dxr:RibbonPageGroup Caption="File">
+                        <dxb:BarButtonItem Content="Open" RibbonStyle="All"
+                                Glyph="{dx:DXImage SvgImages/Actions/Open.svg}" />
+                        <dxb:BarButtonItem Content="Save" RibbonStyle="All"
+                                Glyph="{dx:DXImage SvgImages/Outlook Inspired/Save.svg}" />
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup Caption="Edit">
+                        <dxb:BarButtonItem Content="Cut" RibbonStyle="All"
+                                Glyph="{dx:DXImage SvgImages/Edit/Cut.svg}" />
+                        <dxb:BarButtonItem Content="Copy" RibbonStyle="All"
+                                Glyph="{dx:DXImage SvgImages/Edit/Copy.svg}" />
+                        <dxb:BarButtonItem Content="Paste" RibbonStyle="All"
+                                Glyph="{dx:DXImage SvgImages/Edit/Paste.svg}" />
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+            </dxr:RibbonDefaultPageCategory>
+        </dxr:RibbonControl>
+
+        <dxg:GridControl AutoGenerateColumns="None" x:Name="grid"
+                EnableSmartColumnsGeneration="True" ItemsSource="{Binding Countries}"
+                dx:DXSerializer.SerializationID="grid">
+            <dxg:GridControl.View>
+                <dxg:TableView ShowTotalSummary="True" />
+            </dxg:GridControl.View>
+            <dxg:GridColumn x:Name="codeColumn" FieldName="Code" IsSmart="True" />
+            <dxg:GridColumn x:Name="shortNameColumn" FieldName="ShortName" IsSmart="True" />
+            <dxg:GridColumn x:Name="officialNameColumn" FieldName="OfficialName" IsSmart="True" />
+            <dxg:GridColumn x:Name="currencyColumn" FieldName="Currency" IsSmart="True" />
+            <dxg:GridColumn x:Name="capitalColumn" FieldName="Capital" IsSmart="True" />
+            <dxg:GridColumn x:Name="areaColumn" FieldName="Area" IsSmart="True" />
+            <dxg:GridColumn x:Name="gdpColumn" FieldName="GDP" IsSmart="True" />
+            <dxg:GridColumn x:Name="populationColumn" FieldName="Population" IsSmart="True" />
+            <dxg:GridColumn x:Name="languagesColumn" FieldName="Languages" IsSmart="True" />
+        </dxg:GridControl>
+
+    </DockPanel>
+</dx:ThemedWindow>

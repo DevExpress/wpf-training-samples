@@ -1,0 +1,42 @@
+﻿<dx:ThemedWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        x:Class="sample_4_12.MainWindow" Title="MainWindow" Height="350" Width="700">
+    <DockPanel>
+        <dxb:ToolBarControl DockPanel.Dock="Top">
+            <dxb:BarCheckItem x:Name="customizationButton" Content="Customization" />
+        </dxb:ToolBarControl>
+        <dxlc:LayoutControl
+                IsCustomization="{Binding ElementName=customizationButton, Path=IsChecked}">
+            <dxlc:LayoutGroup Header="LayoutGroup" View="GroupBox" Orientation="Vertical">
+                <dxlc:LayoutItem Label="LayoutItem">
+                    <dxe:TextEdit />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="LayoutItem">
+                    <dxe:TextEdit />
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+            <dxlc:LayoutGroup Header="LayoutGroup" View="Tabs">
+                <dxlc:LayoutGroup Header="Tab">
+                    <dxlc:LayoutItem Label="LayoutItem">
+                        <dxe:TextEdit />
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>
+            <dxlc:LayoutGroup Orientation="Vertical">
+                <dxlc:LayoutItem Label="LayoutItem">
+                    <dxe:DateEdit />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="LayoutItem">
+                    <dxe:ComboBoxEdit />
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+            <dxlc:LayoutItem Label="LayoutItem">
+                <dxe:ImageEdit />
+            </dxlc:LayoutItem>
+        </dxlc:LayoutControl>
+    </DockPanel>
+</dx:ThemedWindow>

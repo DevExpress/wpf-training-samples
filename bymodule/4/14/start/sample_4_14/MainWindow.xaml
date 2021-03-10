@@ -1,0 +1,42 @@
+﻿<dx:ThemedWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+        xmlns:local="clr-namespace:sample_4_14"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        x:Class="sample_4_14.MainWindow" Title="MainWindow" Height="350" Width="525">
+    <dx:ThemedWindow.DataContext>
+        <local:ViewModel />
+    </dx:ThemedWindow.DataContext>
+    <DockPanel>
+        <dxr:RibbonControl RibbonStyle="Office2019" DockPanel.Dock="Top">
+            <dxr:RibbonDefaultPageCategory Caption="defaultCategory">
+                <dxr:RibbonPage Caption="Home">
+                    <dxr:RibbonPageGroup Caption="File">
+                        <dxb:BarButtonItem Content="Open" RibbonStyle="All"
+                                Glyph="{dx:DXImage SvgImages/Actions/Open.svg}" />
+                        <dxb:BarButtonItem Content="Save" RibbonStyle="All"
+                                Glyph="{dx:DXImage SvgImages/Outlook Inspired/Save.svg}" />
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup Caption="Edit">
+                        <dxb:BarButtonItem Content="Cut" RibbonStyle="All"
+                                Glyph="{dx:DXImage SvgImages/Edit/Cut.svg}" />
+                        <dxb:BarButtonItem Content="Copy" RibbonStyle="All"
+                                Glyph="{dx:DXImage SvgImages/Edit/Copy.svg}" />
+                        <dxb:BarButtonItem Content="Paste" RibbonStyle="All"
+                                Glyph="{dx:DXImage SvgImages/Edit/Paste.svg}" />
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+            </dxr:RibbonDefaultPageCategory>
+        </dxr:RibbonControl>
+
+        <dxg:GridControl AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True"
+                ItemsSource="{Binding Countries}">
+            <dxg:GridControl.View>
+                <dxg:TableView ShowTotalSummary="True" />
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+
+    </DockPanel>
+</dx:ThemedWindow>

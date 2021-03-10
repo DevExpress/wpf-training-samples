@@ -1,0 +1,33 @@
+﻿<dx:ThemedWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing"
+        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+        xmlns:dxrud="http://schemas.devexpress.com/winfx/2008/xaml/reports/userdesigner"
+        xmlns:dxda="http://schemas.devexpress.com/winfx/2008/xaml/dataaccess"
+        xmlns:dxrudw="http://schemas.devexpress.com/winfx/2008/xaml/reports/userdesigner/wizard"
+        xmlns:local="clr-namespace:sample_6_7"
+        xmlns:Wizard="clr-namespace:DevExpress.DataAccess.UI.Wizard;assembly=DevExpress.DataAccess.v20.1"
+        x:Class="sample_6_7.MainWindow" Title="MainWindow" Height="350" Width="525"
+        Loaded="ThemedWindow_Loaded">
+    <DockPanel>
+        <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2019" />
+        <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom" />
+
+        <dx:DXTabControl AllowMerging="True">
+            <dx:DXTabItem Header="Preview">
+                <dxp:DocumentPreviewControl x:Name="preview" />
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="Designer">
+                <dxrud:ReportDesigner x:Name="designer">
+
+                    <dxrud:ReportDesigner.ServicesRegistry>
+                        <dxda:TypeEntry ServiceType="{x:Type dxrudw:IWizardCustomizationService}"
+                                ConcreteType="{x:Type local:WizardCustomizationService}" />
+                    </dxrud:ReportDesigner.ServicesRegistry>
+                </dxrud:ReportDesigner>
+            </dx:DXTabItem>
+        </dx:DXTabControl>
+    </DockPanel>
+</dx:ThemedWindow>

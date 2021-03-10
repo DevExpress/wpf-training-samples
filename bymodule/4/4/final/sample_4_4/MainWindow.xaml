@@ -1,0 +1,117 @@
+﻿<dx:ThemedWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:EF="clr-namespace:EventsDB.EF;assembly=DXTraining.EventsDB.EF"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:local="clr-namespace:sample_4_4"
+        xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduling"
+        xmlns:dxschv="http://schemas.devexpress.com/winfx/2008/xaml/scheduling/visual"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxscht="http://schemas.devexpress.com/winfx/2008/xaml/scheduling/themekeys"
+        x:Class="sample_4_4.MainWindow" Title="MainWindow" Height="350" Width="525"
+        Loaded="ThemedWindow_Loaded">
+    <dx:ThemedWindow.Resources>
+        <Style x:Key="appointmentStyle" TargetType="{x:Type dxschv:AppointmentControl}">
+            <Setter Property="ShowStatus" Value="False" />
+        </Style>
+    </dx:ThemedWindow.Resources>
+    <dx:ThemedWindow.DataContext>
+        <local:ViewModel />
+    </dx:ThemedWindow.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="180" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" />
+
+        <dxg:GridControl x:Name="grid" Grid.Row="0" AutoGenerateColumns="None"
+                EnableSmartColumnsGeneration="True" ItemsSource="{Binding Events}"
+                CurrentItemChanged="grid_CurrentItemChanged">
+            <dxg:GridControl.View>
+                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="False"
+                        AllowEditing="False" AllowGrouping="False" ShowGroupPanel="False" />
+            </dxg:GridControl.View>
+            <dxg:GridColumn FieldName="Name" IsSmart="True" />
+            <dxg:GridColumn FieldName="StartDate" IsSmart="True" />
+            <dxg:GridColumn FieldName="EndDate" IsSmart="True" />
+            <dxg:GridColumn FieldName="Venue.Name" IsSmart="True" />
+            <dxg:GridColumn FieldName="Customer.Name" IsSmart="True" />
+        </dxg:GridControl>
+
+        <dxsch:SchedulerControl Grid.Row="2" x:Name="scheduler">
+            <dxsch:SchedulerControl.StatusItems>
+                <dxsch:AppointmentStatusItem
+                        BrushName="{x:Static dxsch:DefaultBrushNames.StatusFree}"
+                        Caption="{dxsch:SchedulerLocalizer StringId=Caption_Free}"
+                        Id="{x:Static dxsch:DefaultItemIds.StatusFree}" />
+                <dxsch:AppointmentStatusItem
+                        BrushName="{x:Static dxsch:DefaultBrushNames.StatusTentative}"
+                        Caption="{dxsch:SchedulerLocalizer StringId=Caption_Tentative}"
+                        Id="{x:Static dxsch:DefaultItemIds.StatusTentative}" />
+                <dxsch:AppointmentStatusItem
+                        BrushName="{x:Static dxsch:DefaultBrushNames.StatusBusy}"
+                        Caption="{dxsch:SchedulerLocalizer StringId=Caption_Busy}"
+                        Id="{x:Static dxsch:DefaultItemIds.StatusBusy}" />
+                <dxsch:AppointmentStatusItem
+                        BrushName="{x:Static dxsch:DefaultBrushNames.StatusOutOfOffice}"
+                        Caption="{dxsch:SchedulerLocalizer StringId=Caption_OutOfOffice}"
+                        Id="{x:Static dxsch:DefaultItemIds.StatusOutOfOffice}" />
+                <dxsch:AppointmentStatusItem
+                        BrushName="{x:Static dxsch:DefaultBrushNames.StatusWorkingElsewhere}"
+                        Caption="{dxsch:SchedulerLocalizer StringId=Caption_WorkingElsewhere}"
+                        Id="{x:Static dxsch:DefaultItemIds.StatusWorkingElsewhere}" />
+            </dxsch:SchedulerControl.StatusItems>
+            <dxsch:SchedulerControl.OptionsContextMenu>
+                <dxsch:OptionsContextMenu>
+                    <dxsch:OptionsContextMenu.AppointmentContextMenu>
+                        <dxb:PopupMenu>
+                            <dxb:BarButtonItem x:Name="Appointment_Open"
+                                    Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Actions_Open}}" />
+                            <dxb:BarItemLinkSeparator />
+                            <dxb:BarButtonItem x:Name="Appointment_EditSeries"
+                                    Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Actions_EditSeries}}" />
+                            <dxb:BarItemLinkSeparator />
+                            <dxb:BarButtonItem x:Name="Appointment_RestoreOccurrence"
+                                    Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Actions_RestoreOccurrence}}" />
+                            <dxb:BarItemLinkSeparator />
+                            <dxb:BarSubItem x:Name="Appointment_ShowTimeAs"
+                                    Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Options_ShowTimeAs}}" />
+                            <dxb:BarSubItem x:Name="Appointment_LabelAs"
+                                    Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Options_LabelAs}}" />
+                            <dxb:BarItemLinkSeparator />
+                            <dxb:BarButtonItem x:Name="Appointment_Cut"
+                                    Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Actions_Cut}}" />
+                            <dxb:BarButtonItem x:Name="Appointment_Copy"
+                                    Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Actions_Copy}}" />
+                            <dxb:BarButtonItem x:Name="Appointment_Paste"
+                                    Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Actions_Paste}}" />
+                            <dxb:BarButtonItem x:Name="Appointment_Delete"
+                                    Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Actions_Delete}}" />
+                        </dxb:PopupMenu>
+                    </dxsch:OptionsContextMenu.AppointmentContextMenu>
+                </dxsch:OptionsContextMenu>
+            </dxsch:SchedulerControl.OptionsContextMenu>
+            <dxsch:SchedulerControl.LabelItems>
+                <dxsch:AppointmentLabelItem Id="room not booked" Brush="#FFFFB3B3" />
+                <dxsch:AppointmentLabelItem Id="room booked" Brush="#FFA5FFA5" />
+            </dxsch:SchedulerControl.LabelItems>
+            <dxsch:SchedulerControl.DataSource>
+                <dxsch:DataSource x:Name="schedulerSource">
+                    <dxsch:DataSource.AppointmentMappings>
+                        <dxsch:AppointmentMappings Id="Id" End="EndTime" Start="StartTime"
+                                Subject="Name"
+                                LabelId="{dxsch:Mapping ConversionBehavior=BetweenFieldAndMapping, Converter={local:RoomBookingLabelConverter}, FieldName=RoomBooking}"
+                                Location="RoomBooking.Room.Name" />
+                    </dxsch:DataSource.AppointmentMappings>
+                </dxsch:DataSource>
+            </dxsch:SchedulerControl.DataSource>
+            <dxsch:DayView x:Name="dayView" ShowAllDayArea="False" SnapToCellsMode="Never"
+                    NavigationButtonsVisibility="Never"
+                    AppointmentStyle="{StaticResource appointmentStyle}" />
+        </dxsch:SchedulerControl>
+
+    </Grid>
+</dx:ThemedWindow>

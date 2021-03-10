@@ -1,0 +1,21 @@
+﻿<dx:ThemedWindow
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+	xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing"
+    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+    x:Class="sample_6_7.MainWindow"
+	Title="MainWindow" Height="350" Width="525" Loaded="ThemedWindow_Loaded">
+    <DockPanel>
+        <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2019" />
+        <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
+
+        <dx:DXTabControl AllowMerging="True">
+            <dx:DXTabItem Header="Preview">
+                <dxp:DocumentPreviewControl x:Name="preview"/>
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="Designer"/>
+        </dx:DXTabControl>
+    </DockPanel>
+</dx:ThemedWindow>

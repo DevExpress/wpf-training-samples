@@ -1,0 +1,19 @@
+﻿<dx:ThemedWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:EF="clr-namespace:CountriesDB.EF;assembly=DXTraining.CountriesDB.EF"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:local="clr-namespace:DataLayer" x:Class="DataLayer.EntityServerModeSourceWindow"
+        Title="EntityServerModeSourceWindow" Height="350" Width="525">
+    <dx:ThemedWindow.DataContext>
+        <local:EntityServerModeViewModel />
+    </dx:ThemedWindow.DataContext>
+    <Grid>
+        <dxg:GridControl AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True"
+                ItemsSource="{Binding Countries}">
+            <dxg:GridControl.View>
+                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" />
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+    </Grid>
+</dx:ThemedWindow>

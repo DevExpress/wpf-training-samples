@@ -1,0 +1,38 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        xmlns:ViewModels="clr-namespace:sample_7_7.ViewModels"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        x:Class="sample_7_7.Views.TasksView" mc:Ignorable="d"
+        DataContext="{dxmvvm:ViewModelSource Type={x:Type ViewModels:TasksViewModel}}"
+        d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
+    <dxmvvm:Interaction.Behaviors>
+        <dx:DialogService DialogWindowStartupLocation="CenterOwner">
+
+            <dx:DialogService.DialogStyle>
+                <Style TargetType="dx:DXDialogWindow">
+                    <Setter Property="Width" Value="450" />
+                    <Setter Property="Height" Value="300" />
+                </Style>
+            </dx:DialogService.DialogStyle>
+        </dx:DialogService>
+    </dxmvvm:Interaction.Behaviors>
+    <Grid>
+        <dxg:GridControl x:Name="grid" AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True"
+                ItemsSource="{Binding Tasks}">
+            <dxg:GridControl.View>
+                <dxg:TableView ShowTotalSummary="True" AllowEditing="False">
+
+                    <dxmvvm:Interaction.Behaviors>
+                        <dxmvvm:EventToCommand EventName="RowDoubleClick"
+                                Command="{Binding EditTaskCommand}"
+                                CommandParameter="{Binding ElementName=grid,Path=CurrentItem}" />
+                    </dxmvvm:Interaction.Behaviors>
+                </dxg:TableView>
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+    </Grid>
+</UserControl>

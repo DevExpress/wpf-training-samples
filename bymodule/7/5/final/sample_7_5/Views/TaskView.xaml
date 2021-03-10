@@ -1,0 +1,19 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        xmlns:ViewModels="clr-namespace:sample_7_5.ViewModels"
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        x:Class="sample_7_5.Views.TaskView" mc:Ignorable="d"
+        DataContext="{dxmvvm:ViewModelSource Type={x:Type ViewModels:TaskViewModel}}"
+        d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel>
+        <dxb:ToolBarControl DockPanel.Dock="Top">
+            <dxb:BarButtonItem Content="Postpone" Command="{Binding PostponeCommand}" />
+            <dxb:BarButtonItem Content="Mark Done" Command="{Binding MarkDoneCommand}" />
+        </dxb:ToolBarControl>
+        <dxlc:DataLayoutControl CurrentItem="{Binding}" />
+    </DockPanel>
+</UserControl>

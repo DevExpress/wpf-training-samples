@@ -1,0 +1,56 @@
+﻿<dx:ThemedWindow 
+    x:Class="DXBindingDemo.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:local="clr-namespace:DXBindingDemo"
+    Title="MainWindow" Height="370" Width="510">
+    <dx:ThemedWindow.DataContext>
+        <local:ViewModel />
+    </dx:ThemedWindow.DataContext>
+    <dxlc:ScrollBox>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Width="200">
+                <GroupBox Header="Simple Bindings">
+                    <StackPanel>
+                        <TextBlock Text="{DXBinding SimpleString}" />
+                        <TextBlock Text="{DXBinding `Some text`}" />
+                        <TextBlock Text="{DXBinding 14 * 3}" />
+                        <TextBlock Text="{DXBinding Owner.FirstName}" />
+                        <TextBlock Text="{DXBinding Owner.LastName}" />
+                        <TextBlock Text="{DXBinding Owner.FirstName + ` ` + Owner.LastName}" />
+                        <TextBlock Text="{DXBinding SimpleInt gt 10}" />
+                        <TextBlock Text="{DXBinding Square(SimpleInt)}"/>
+                        <TextBlock x:Name="sourceBlock" Text="{DXBinding Sqrt(107)}"/>
+                        <TextBlock Text="{DXBinding `Source: ` + @ElementName(sourceBlock).Text}" />
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+            <StackPanel Width="250" Margin="10,0,0,0">
+                <GroupBox Header="One-way Bindings">
+                    <StackPanel>
+                        <dxe:TextEdit EditValue="{DXBinding Owner.FirstName + ` ` + Owner.LastName, Mode=OneWay}" />
+                        <CheckBox Content="SimpleInt > 99" IsChecked="{DXBinding SimpleInt gt 99, Mode=OneWay}" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Two-way Bindings">
+                    <StackPanel>
+                        <dxe:TextEdit EditValue="{DXBinding SimpleInt, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <Label>Twice-the-value Editor</Label>
+                        <dxe:TextEdit EditValue="{DXBinding SimpleInt * 2, BackExpr=$int.Parse(@value) / 2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Buttons">
+                    <StackPanel>
+                        <CheckBox IsChecked="{Binding Check1}">First check this</CheckBox>
+                        <CheckBox IsChecked="{Binding Check2}">Then check this as well</CheckBox>
+                        <Button Command="{DXCommand CanExecute='Check1 and Check2', Execute='DoSomething(`a string`, 42)'}">Button with DXCommand binding</Button>
+                        <Button Click="{DXEvent 'DoSomething(`a string`, 42)'}" IsEnabled="{DXBinding 'Check1 and Check2'}">Button with DXEvent binding</Button>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </StackPanel>
+    </dxlc:ScrollBox>
+</dx:ThemedWindow>

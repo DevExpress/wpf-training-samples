@@ -1,0 +1,194 @@
+﻿<dx:ThemedWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+        xmlns:local="clr-namespace:sample_5_5"
+        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+        xmlns:dxct="http://schemas.devexpress.com/winfx/2008/xaml/charts/themekeys"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        x:Class="sample_5_5.MainWindow" Title="MainWindow" Height="350" Width="525">
+    <dx:ThemedWindow.DataContext>
+        <local:ViewModel />
+    </dx:ThemedWindow.DataContext>
+    <DockPanel>
+        <dxr:RibbonControl DockPanel.Dock="Top"
+                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=RibbonControl}}"
+                dxc:ChartControlBase.Chart="{Binding ElementName=chart}">
+            <dxr:RibbonDefaultPageCategory
+                    Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=RibbonChartToolsCategory}}">
+                <dxr:RibbonPage x:Name="CommonPage"
+                        Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=RibbonCommonPage}}">
+                    <dxr:RibbonPageGroup x:Name="RunDesignerGroup"
+                            Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=RibbonRunDesignerGroup}}">
+                        <dxb:BarButtonItem x:Name="RunDesignerItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=RunDesignerItem}}" />
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup x:Name="TemplatesGroup"
+                            Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=RibbonTemplatesGroup}}">
+                        <dxb:BarButtonItem x:Name="SaveAsTemplateItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=SaveAsTemplateItem}}" />
+                        <dxb:BarButtonItem x:Name="LoadTemplateItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=LoadTemplateItem}}" />
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup x:Name="PrintAndExportGroup"
+                            Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=RibbonPrintAndExportGroup}}">
+                        <dxb:BarButtonItem x:Name="PrintPreviewItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=RibbonPrintPreviewItem}}" />
+                        <dxb:BarButtonItem x:Name="PrintItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=PrintItem}}" />
+                        <dxb:BarSubItem x:Name="ExportItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=ExportItem}}">
+                            <dxb:BarButtonItem x:Name="ExportToPdfItem"
+                                    Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=ExportToPdfItem}}" />
+                            <dxb:BarButtonItem x:Name="ExportToHtmlItem"
+                                    Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=ExportToHtmlItem}}" />
+                            <dxb:BarButtonItem x:Name="ExportToMhtItem"
+                                    Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=ExportToMhtItem}}" />
+                            <dxb:BarButtonItem x:Name="ExportToXlsItem"
+                                    Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=ExportToXlsItem}}" />
+                            <dxb:BarButtonItem x:Name="ExportToXlsxItem"
+                                    Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=ExportToXlsxItem}}" />
+                            <dxb:BarButtonItem x:Name="ExportToRtfItem"
+                                    Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=ExportToRtfItem}}" />
+                            <dxb:BarButtonItem x:Name="ExportToDocxItem"
+                                    Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=ExportToDocxItem}}" />
+                            <dxb:BarSubItem x:Name="ExportToImageItem"
+                                    Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=ExportToImageItem}}">
+                                <dxb:BarButtonItem x:Name="ExportToBmpItem"
+                                        Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=ExportToBmpItem}}" />
+                                <dxb:BarButtonItem x:Name="ExportToGifItem"
+                                        Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=ExportToGifItem}}" />
+                                <dxb:BarButtonItem x:Name="ExportToJpegItem"
+                                        Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=ExportToJpegItem}}" />
+                                <dxb:BarButtonItem x:Name="ExportToPngItem"
+                                        Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=ExportToPngItem}}" />
+                                <dxb:BarButtonItem x:Name="ExportToTiffItem"
+                                        Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=ExportToTiffItem}}" />
+                            </dxb:BarSubItem>
+                        </dxb:BarSubItem>
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup x:Name="AppearanceGroup"
+                            Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=RibbonAppearanceGroup}}">
+                        <dxb:BarSubItem x:Name="PaletteItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=PaletteItem}}" />
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+                <dxr:RibbonPage x:Name="FinancialOptionsPage"
+                        Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=RibbonFinancialOptionsPage}}">
+                    <dxr:RibbonPageGroup x:Name="FinancialSeriesAndAxisGroup"
+                            Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=RibbonFinancialSeriesAndAxisGroup}}">
+                        <dxb:BarEditItem x:Name="SeriesSelectorItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=SeriesSelectorItem}}" />
+                        <dxb:BarEditItem x:Name="FinancialAxisUnitItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=FinancialAxisUnitItem}}">
+                            <dxb:BarEditItem.EditStyle>
+                                <Style TargetType="{x:Type dxe:ComboBoxEdit}">
+                                    <Setter Property="SelectedIndex" Value="0" />
+                                </Style>
+                            </dxb:BarEditItem.EditStyle>
+                            <dxb:BarEditItem.EditSettings>
+                                <dxe:ComboBoxEditSettings DisplayMember="Caption"
+                                        IsTextEditable="False">
+                                    <dxe:ComboBoxEditSettings.Items>
+                                        <dxc:ChartIntervalItem x:Name="FinancialAxisUnitItem_1_day"
+                                                Caption="1 day" MeasureUnit="Day"
+                                                MeasureUnitMultiplier="1" />
+                                        <dxc:ChartIntervalItem x:Name="FinancialAxisUnitItem_1_week"
+                                                Caption="1 week" MeasureUnit="Week"
+                                                MeasureUnitMultiplier="1" />
+                                        <dxc:ChartIntervalItem
+                                                x:Name="FinancialAxisUnitItem_1_month"
+                                                Caption="1 month" MeasureUnit="Month"
+                                                MeasureUnitMultiplier="1" />
+                                    </dxe:ComboBoxEditSettings.Items>
+                                </dxe:ComboBoxEditSettings>
+                            </dxb:BarEditItem.EditSettings>
+                        </dxb:BarEditItem>
+                        <dxb:BarEditItem x:Name="FinancialAxisPeriodItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=FinancialAxisPeriodItem}}">
+                            <dxb:BarEditItem.EditStyle>
+                                <Style TargetType="{x:Type dxe:ComboBoxEdit}">
+                                    <Setter Property="SelectedIndex" Value="0" />
+                                </Style>
+                            </dxb:BarEditItem.EditStyle>
+                            <dxb:BarEditItem.EditSettings>
+                                <dxe:ComboBoxEditSettings DisplayMember="Caption"
+                                        IsTextEditable="False">
+                                    <dxe:ComboBoxEditSettings.Items>
+                                        <dxc:ChartIntervalItem
+                                                x:Name="FinancialAxisPeriodItem_6_month"
+                                                Caption="6 month" MeasureUnit="Month"
+                                                MeasureUnitMultiplier="6" />
+                                        <dxc:ChartIntervalItem
+                                                x:Name="FinancialAxisPeriodItem_1_year"
+                                                Caption="1 year" MeasureUnit="Year"
+                                                MeasureUnitMultiplier="1" />
+                                        <dxc:ChartIntervalItem
+                                                x:Name="FinancialAxisPeriodItem_2_years"
+                                                Caption="2 years" MeasureUnit="Year"
+                                                MeasureUnitMultiplier="2" />
+                                    </dxe:ComboBoxEditSettings.Items>
+                                </dxe:ComboBoxEditSettings>
+                            </dxb:BarEditItem.EditSettings>
+                        </dxb:BarEditItem>
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup x:Name="ConstantLinesGroup"
+                            Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=RibbonConstantLinesGroup}}">
+                        <dxb:BarCheckItem x:Name="AddHorizontalConstantLineItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=AddHorizontalConstantLineItem}}" />
+                        <dxb:BarCheckItem x:Name="AddVerticalConstantLineItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=AddVerticalConstantLineItem}}" />
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup x:Name="AnnotationsGroup"
+                            Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=RibbonAnnotationsGroup}}">
+                        <dxb:BarCheckItem x:Name="AddTextAnnotationItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=AddTextAnnotationItem}}" />
+                        <dxb:BarCheckItem x:Name="AddImageAnnotationItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=AddImageAnnotationItem}}" />
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup x:Name="FinancialIndicatorsGroup"
+                            Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=RibbonFinancialIndicatorsGroup}}">
+                        <dxb:BarCheckItem x:Name="DrawTrendLineIndicator"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=DrawTrendLineIndicatorItem}}" />
+                        <dxb:BarCheckItem x:Name="DrawFibonacciArcsIndicatorItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=DrawFibonacciArcsIndicatorItem}}" />
+                        <dxb:BarCheckItem x:Name="DrawFibonacciFansIndicatorItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=DrawFibonacciFansIndicatorItem}}" />
+                        <dxb:BarCheckItem x:Name="DrawFibonacciRetracementIndicatorItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=DrawFibonacciRetracementIndicatorItem}}" />
+                        <dxb:BarCheckItem x:Name="RemoveIndicatorItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=RemoveIndicatorItem}}" />
+                        <dxb:BarItemSeparator />
+                        <dxb:BarSubItem x:Name="AddIndicatorItem"
+                                Style="{DynamicResource {dxct:ChartToolbarThemeKey ResourceKey=AddIndicatorItem}}" />
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+            </dxr:RibbonDefaultPageCategory>
+        </dxr:RibbonControl>
+        <Grid>
+            <dxc:ChartControl x:Name="chart" DataSource="{Binding TopTenByPopulation}">
+                <dxc:ChartControl.Titles>
+                    <dxc:Title VerticalAlignment="Top" HorizontalAlignment="Center" Dock="Top"
+                            Content="Top Population Values" />
+                </dxc:ChartControl.Titles>
+                <dxc:ChartControl.Legends>
+                    <dxc:Legend />
+                </dxc:ChartControl.Legends>
+                <dxc:XYDiagram2D>
+                    <dxc:BarSideBySideSeries2D ValueDataMember="Population" LabelsVisibility="True"
+                            DisplayName="Population" ArgumentDataMember="Name">
+                        <dxc:BarSideBySideSeries2D.Label>
+                            <dxc:SeriesLabel dxc:BarSideBySideSeries2D.LabelPosition="Outside" />
+                        </dxc:BarSideBySideSeries2D.Label>
+                        <dxc:SeriesPoint Argument="1" Value="6.5" />
+                        <dxc:SeriesPoint Argument="2" Value="5.5" />
+                        <dxc:SeriesPoint Argument="3" Value="12.5" />
+                        <dxc:SeriesPoint Argument="4" Value="11.5" />
+                        <dxc:SeriesPoint Argument="5" Value="18.5" />
+                    </dxc:BarSideBySideSeries2D>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl>
+        </Grid>
+    </DockPanel>
+</dx:ThemedWindow>
