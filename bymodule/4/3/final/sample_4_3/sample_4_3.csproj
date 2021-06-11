@@ -35,20 +35,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Mvvm.v20.2" />
-    <Reference Include="DevExpress.Data.Desktop.v20.2" />
-    <Reference Include="DevExpress.Data.v20.2" />
-    <Reference Include="DevExpress.Printing.v20.2.Core" />
-    <Reference Include="DevExpress.Xpf.Core.v20.2" />
-    <Reference Include="DevExpress.Xpf.Grid.v20.2" />
-    <Reference Include="DevExpress.Xpf.Grid.v20.2.Core" />
-    <Reference Include="DevExpress.Xpf.LayoutControl.v20.2" />
-    <Reference Include="DevExpress.Xpf.Printing.v20.2" />
-    <Reference Include="DevExpress.Xpf.Ribbon.v20.2" />
-    <Reference Include="DevExpress.Xpf.Scheduling.v20.2" />
-    <Reference Include="DevExpress.Xpf.Themes.Office2019Colorful.v20.2" />
-    <Reference Include="DevExpress.XtraScheduler.v20.2.Core.Desktop" />
-    <Reference Include="DevExpress.XtraScheduler.v20.2.Core" />
+    <Reference Include="DevExpress.Mvvm.v21.1" />
+    <Reference Include="DevExpress.Data.Desktop.v21.1" />
+    <Reference Include="DevExpress.Data.v21.1" />
+    <Reference Include="DevExpress.Printing.v21.1.Core" />
+    <Reference Include="DevExpress.Xpf.Core.v21.1" />
+    <Reference Include="DevExpress.Xpf.Grid.v21.1" />
+    <Reference Include="DevExpress.Xpf.Grid.v21.1.Core" />
+    <Reference Include="DevExpress.Xpf.LayoutControl.v21.1" />
+    <Reference Include="DevExpress.Xpf.Printing.v21.1" />
+    <Reference Include="DevExpress.Xpf.Ribbon.v21.1" />
+    <Reference Include="DevExpress.Xpf.Scheduling.v21.1" />
+    <Reference Include="DevExpress.Xpf.Themes.Office2019Colorful.v21.1" />
+    <Reference Include="DevExpress.XtraScheduler.v21.1.Core.Desktop" />
+    <Reference Include="DevExpress.XtraScheduler.v21.1.Core" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />

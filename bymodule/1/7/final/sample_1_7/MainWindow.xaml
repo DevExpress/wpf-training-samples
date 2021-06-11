@@ -6,7 +6,7 @@
         xmlns:EF="clr-namespace:CountriesDB.EF;assembly=DXTraining.CountriesDB.EF"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-        xmlns:dxut="clr-namespace:DevExpress.Xpf.Utils.Themes;assembly=DevExpress.Xpf.Core.v20.2"
+        xmlns:dxut="clr-namespace:DevExpress.Xpf.Utils.Themes;assembly=DevExpress.Xpf.Core.v21.1"
         xmlns:local="clr-namespace:sample_1_7"
         xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
         x:Class="sample_1_7.MainWindow" Title="MainWindow" Height="350" Width="525">

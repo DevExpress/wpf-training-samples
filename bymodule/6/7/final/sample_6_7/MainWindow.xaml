@@ -8,7 +8,7 @@
         xmlns:dxda="http://schemas.devexpress.com/winfx/2008/xaml/dataaccess"
         xmlns:dxrudw="http://schemas.devexpress.com/winfx/2008/xaml/reports/userdesigner/wizard"
         xmlns:local="clr-namespace:sample_6_7"
-        xmlns:Wizard="clr-namespace:DevExpress.DataAccess.UI.Wizard;assembly=DevExpress.DataAccess.v20.2"
+        xmlns:Wizard="clr-namespace:DevExpress.DataAccess.UI.Wizard;assembly=DevExpress.DataAccess.v21.1"
         x:Class="sample_6_7.MainWindow" Title="MainWindow" Height="350" Width="525"
         Loaded="ThemedWindow_Loaded">
     <DockPanel>

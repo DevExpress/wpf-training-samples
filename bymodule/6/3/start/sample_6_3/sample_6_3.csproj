@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -42,35 +42,30 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Images.v20.2" />
-    <Reference Include="DevExpress.Mvvm.v20.2" />
-    <Reference Include="DevExpress.Xpf.CodeView.v20.2" />
-    <Reference Include="DevExpress.Data.Desktop.v20.2" />
-    <Reference Include="DevExpress.Xpf.Core.v20.2" />
-    <Reference Include="DevExpress.Data.v20.2" />
-    <Reference Include="DevExpress.Pdf.v20.2.Core" />
-    <Reference Include="DevExpress.Office.v20.2.Core" />
-    <Reference Include="DevExpress.RichEdit.v20.2.Core" />
-    <Reference Include="DevExpress.RichEdit.v20.2.Export" />
-    <Reference Include="DevExpress.Printing.v20.2.Core" />
-    <Reference Include="DevExpress.Xpf.Printing.v20.2" />
-    <Reference Include="DevExpress.Xpf.Grid.v20.2" />
-    <Reference Include="DevExpress.Xpf.Grid.v20.2.Core" />
-    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v20.2" />
-    <Reference Include="DevExpress.Xpf.Themes.Office2019Colorful.v20.2" />
-    <Reference Include="DXTraining.EventsDB.EF, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\DXTraining.EventsDB.EF.1.0.3\lib\net452\DXTraining.EventsDB.EF.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DXTraining.EventsDB.EF.Populate, Version=1.0.5.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\DXTraining.EventsDB.EF.Populate.1.0.5\lib\net452\DXTraining.EventsDB.EF.Populate.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="DevExpress.Images.v21.1" />
+    <Reference Include="DevExpress.Mvvm.v21.1" />
+    <Reference Include="DevExpress.Xpf.CodeView.v21.1" />
+    <Reference Include="DevExpress.Data.Desktop.v21.1" />
+    <Reference Include="DevExpress.Xpf.Core.v21.1" />
+    <Reference Include="DevExpress.Data.v21.1" />
+    <Reference Include="DevExpress.Pdf.v21.1.Core" />
+    <Reference Include="DevExpress.Office.v21.1.Core" />
+    <Reference Include="DevExpress.RichEdit.v21.1.Core" />
+    <Reference Include="DevExpress.RichEdit.v21.1.Export" />
+    <Reference Include="DevExpress.Printing.v21.1.Core" />
+    <Reference Include="DevExpress.Xpf.Printing.v21.1" />
+    <Reference Include="DevExpress.Xpf.Grid.v21.1" />
+    <Reference Include="DevExpress.Xpf.Grid.v21.1.Core" />
+    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v21.1" />
+    <Reference Include="DevExpress.Xpf.Themes.Office2019Colorful.v21.1" />
+    <Reference Include="DXTraining.EventsDB.EF, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DXTraining.EventsDB.EF.2.0.1\lib\net452\DXTraining.EventsDB.EF.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="pct.BizRulez, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BizRulez.1.0.2\lib\net40\pct.BizRulez.dll</HintPath>
@@ -141,10 +136,10 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
