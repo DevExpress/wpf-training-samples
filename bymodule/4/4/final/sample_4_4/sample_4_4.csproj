@@ -42,26 +42,26 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Mvvm.v21.1" />
-    <Reference Include="DevExpress.Xpf.CodeView.v21.1" />
-    <Reference Include="DevExpress.Data.Desktop.v21.1" />
-    <Reference Include="DevExpress.Xpf.Core.v21.1" />
-    <Reference Include="DevExpress.Data.v21.1" />
-    <Reference Include="DevExpress.Pdf.v21.1.Core" />
-    <Reference Include="DevExpress.Office.v21.1.Core" />
-    <Reference Include="DevExpress.RichEdit.v21.1.Core" />
-    <Reference Include="DevExpress.RichEdit.v21.1.Export" />
-    <Reference Include="DevExpress.Printing.v21.1.Core" />
-    <Reference Include="DevExpress.Xpf.LayoutControl.v21.1" />
-    <Reference Include="DevExpress.Xpf.Printing.v21.1" />
-    <Reference Include="DevExpress.Xpf.Grid.v21.1" />
-    <Reference Include="DevExpress.Xpf.Grid.v21.1.Core" />
-    <Reference Include="DevExpress.Xpf.Ribbon.v21.1" />
-    <Reference Include="DevExpress.Xpf.Scheduling.v21.1" />
-    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v21.1" />
-    <Reference Include="DevExpress.Xpf.Themes.Office2019Colorful.v21.1" />
-    <Reference Include="DevExpress.XtraScheduler.v21.1.Core.Desktop" />
-    <Reference Include="DevExpress.XtraScheduler.v21.1.Core" />
+    <Reference Include="DevExpress.Mvvm.v21.2" />
+    <Reference Include="DevExpress.Xpf.CodeView.v21.2" />
+    <Reference Include="DevExpress.Data.Desktop.v21.2" />
+    <Reference Include="DevExpress.Xpf.Core.v21.2" />
+    <Reference Include="DevExpress.Data.v21.2" />
+    <Reference Include="DevExpress.Pdf.v21.2.Core" />
+    <Reference Include="DevExpress.Office.v21.2.Core" />
+    <Reference Include="DevExpress.RichEdit.v21.2.Core" />
+    <Reference Include="DevExpress.RichEdit.v21.2.Export" />
+    <Reference Include="DevExpress.Printing.v21.2.Core" />
+    <Reference Include="DevExpress.Xpf.LayoutControl.v21.2" />
+    <Reference Include="DevExpress.Xpf.Printing.v21.2" />
+    <Reference Include="DevExpress.Xpf.Grid.v21.2" />
+    <Reference Include="DevExpress.Xpf.Grid.v21.2.Core" />
+    <Reference Include="DevExpress.Xpf.Ribbon.v21.2" />
+    <Reference Include="DevExpress.Xpf.Scheduling.v21.2" />
+    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v21.2" />
+    <Reference Include="DevExpress.Xpf.Themes.Office2019Colorful.v21.2" />
+    <Reference Include="DevExpress.XtraScheduler.v21.2.Core.Desktop" />
+    <Reference Include="DevExpress.XtraScheduler.v21.2.Core" />
     <Reference Include="DXTraining.EventsDB.EF, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DXTraining.EventsDB.EF.2.0.1\lib\net452\DXTraining.EventsDB.EF.dll</HintPath>
     </Reference>

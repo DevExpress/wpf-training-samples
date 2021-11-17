@@ -14,7 +14,7 @@
                             Content="Recent Files"
                             dxb:MergingProperties.ElementMergingBehavior="InternalWithInternal"
                             dxb:BarNameScope.IsScopeOwner="False" dx:SvgImageHelper.State="Normal"
-                            Glyph="{dx:SvgImageSource Uri='pack://application:,,,/DevExpress.Images.v21.1;component/SvgImages/Business Objects/BO_Audit_ChangeHistory.svg', Size=24 24}">
+                            Glyph="{dx:SvgImageSource Uri='pack://application:,,,/DevExpress.Images.v21.2;component/SvgImages/Business Objects/BO_Audit_ChangeHistory.svg', Size=24 24}">
 
                         <dxr:BackstageTabItem.ControlPane>
                             <TextBlock Text="Recent Files UI" VerticalAlignment="Center"
@@ -25,7 +25,7 @@
                             Content="Document Export"
                             dxb:MergingProperties.ElementMergingBehavior="InternalWithInternal"
                             dxb:BarNameScope.IsScopeOwner="False" dx:SvgImageHelper.State="Normal"
-                            Glyph="{dx:SvgImageSource Uri='pack://application:,,,/DevExpress.Images.v21.1;component/SvgImages/Export/Export.svg', Size=24 24}">
+                            Glyph="{dx:SvgImageSource Uri='pack://application:,,,/DevExpress.Images.v21.2;component/SvgImages/Export/Export.svg', Size=24 24}">
 
                         <dxr:BackstageTabItem.ControlPane>
                             <TextBlock Text="Document Export UI" VerticalAlignment="Center"
